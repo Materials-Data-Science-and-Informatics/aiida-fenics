@@ -1,0 +1,70 @@
+{
+    "version": "0.1.0",
+    "name": "aiida-pfdisloc",
+    "url": "https://github.com/broeder-j/aiida-pfdisloc",
+    "license": "MIT License, see LICENSE.txt file.",
+    "author": "IAS-9",
+    "author_email": "j.broeder@fz-juelich.de",
+    "description": "Python pfdisloc simulation package containing an AiiDA Plugin for running the pfdisloc-code (phasefield dislocation interaction) from the IAS-9 of the Forschungszentrum Juelich GmbH. The code is based on Fenics. The package also contains some workflows and utility",
+    "classifiers": [
+        "Framework :: AiiDA",
+        "License :: OSI Approved :: MIT License",
+        "Operating System :: POSIX :: Linux",
+        "Operating System :: MacOS :: MacOS X",
+        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3.6",
+        "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
+        "Environment :: Plugins",
+        "Intended Audience :: Science/Research",
+        "Topic :: Scientific/Engineering :: Physics",
+        "Natural Language :: English"
+    ],
+    "keywords": "pfdisloc aiida workflows dislocation phasefield phasefield-dislocation-interaction fenics FEM juelich dft FZJ ias-9",
+    "include_package_data": true,
+    "setup_requires": [
+        "reentry"
+    ],
+    "reentry_register": true,
+    "install_requires": [
+        "aiida-core>=1.3.0,<2.0.0",
+    ],
+    "extras_require": {
+        "graphs ": [
+            "matplotlib"
+        ],
+        "docs": [
+            "Sphinx",
+            "docutils",
+            "sphinx_rtd_theme"
+        ],
+        "pre-commit": [
+            "pre-commit>=2.6.0",
+            "yapf==0.30.0",
+            "pylint==2.5.2"
+        ],
+        "testing" : [
+            "pytest>=2.9",
+            "pytest-timeout",
+            "pytest-cov>= 2.5.0",
+            "pgtest"
+        ]
+    },
+    "entry_points": {
+        "aiida.calculations": [
+            "pfdisloc.pfdisloc = aiida_pfdisloc.calculation.pfdisloc:PfdlislocCalculation"
+        ],
+        "aiida.data": [
+            "pfdisloc.mesh = aiia_pfdisloc.data.mesh:FEMMeshData",
+        ],
+        "aiida.parsers": [
+            "pfdisloc.pfdislocparser = aiida_pfdisloc.parsers.pfdisloc:PfdislocParser",
+        ],
+        "aiida.workflows": [
+        ],
+        "console_scripts": [
+            "aiida-pfdisloc = aiida_pfdisloc.cmdline:cmd_root"
+        ]
+    }
+}
