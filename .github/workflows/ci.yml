@@ -1,4 +1,4 @@
-name: aiida-fleur
+name: aiida-pfdisloc
 
 on: [push, pull_request]
 
@@ -59,7 +59,6 @@ jobs:
 
     - name: Install python dependencies
       run:
-        pip install git+https://github.com/aiidateam/aiida-testing@export_cache
         pip install .[pre-commit,testing]
         pip freeze
 
@@ -74,7 +73,7 @@ jobs:
 
     strategy:
       matrix:
-        python-version: ['3.8', '3.7', '3.6']
+        python-version: ['3.9', '3.8', '3.7']
 
     steps:
     - uses: actions/checkout@v1
@@ -105,20 +104,14 @@ jobs:
 
     - name: Install python dependencies
       run: |
-        pip install numpy==1.16.4
-        pip install PyCifRW~=4.4
-        # install aiida-testing manually
-        #pip install git+https://github.com/broeder-j/aiida-testing.git@fa44c3ba4e57192fdbdee1cf3581576acc93800c
-        pip install git+https://github.com/aiidateam/aiida-testing.git@export_cache
+        #pip install numpy==1.16.4
+        #pip install PyCifRW~=4.4
         pip install .[testing]
         reentry scan
 
     - name: Run pytest
       run: |
-       # create fake codes for tests to work on ci
        cd ./tests/
-       touch local_exe/inpgen && chmod +x local_exe/inpgen
-       touch local_exe/fleur && chmod +x local_exe/fleur 
        ./run_all_cov.sh
     
     - name: Upload report to Codecov
