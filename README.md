@@ -1,19 +1,19 @@
-# Phasefield dislocation interaction simulations with AiiDA
+# Enableing usage of the FEniCS computing platform with AiiDA
 
 [![MIT license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![GitHub release](https://img.shields.io/github/release/broeder-j/aiida-pdfdisloc.svg)](https://github.com/broeder-j/aiida-pdfdisloc/releases)
-[![PyPI version](https://badge.fury.io/py/aiida-pdfdisloc.svg)](https://badge.fury.io/py/aiida-pdfdisloc)
-[![PyPI pyversions](https://img.shields.io/pypi/pyversions/aiida-pdfdisloc.svg)](https://pypi.python.org/pypi/aiida-pdfdisloc)
-[![Build status](https://github.com/broeder-j/aiida-pdfdisloc/workflows/aiida-pdfdisloc/badge.svg?branch=develop&event=push)](https://github.com/broeder-j/aiida-pdfdisloc/actions)
-[![Documentation Status](https://readthedocs.org/projects/aiida-pdfdisloc/badge/?version=develop)](https://aiida-pdfdisloc.readthedocs.io/en/develop/?badge=develop)
-[![codecov](https://codecov.io/gh/broeder-j/aiida-pdfdisloc/branch/develop/graph/badge.svg)](https://codecov.io/gh/broeder-j/aiida-pdfdisloc)
+[![GitHub release](https://img.shields.io/github/release/broeder-j/aiida-fenics.svg)](https://github.com/broeder-j/aiida-fenics/releases)
+[![PyPI version](https://badge.fury.io/py/aiida-fenics.svg)](https://badge.fury.io/py/aiida-fenics)
+[![PyPI pyversions](https://img.shields.io/pypi/pyversions/aiida-fenics.svg)](https://pypi.python.org/pypi/aiida-fenics)
+[![Build status](https://github.com/broeder-j/aiida-fenics/workflows/aiida-fenics/badge.svg?branch=develop&event=push)](https://github.com/broeder-j/aiida-fenics/actions)
+[![Documentation Status](https://readthedocs.org/projects/aiida-fenics/badge/?version=develop)](https://aiida-fenics.readthedocs.io/en/develop/?badge=develop)
+[![codecov](https://codecov.io/gh/broeder-j/aiida-fenics/branch/develop/graph/badge.svg)](https://codecov.io/gh/broeder-j/aiida-fenics)
 
 
-This software contains a plugin that enables the usage of the Phasefield dislocation interaction program Pdfdisloc with the [AiiDA framework](http://www.aiida.net).
+This software contains a plugins that enables the usage of the FENiCS computing platform with the [AiiDA framework](http://www.aiida.net). It includes special plugins for software building on FENiCs like the Phasefield dislocation interaction program Pdfdisloc. The enables provenance tracking for such simulations and workflows, which is need for research datamanagement, reproducibility and FAIR data.
 
 ### Documentation
 
-Hosted at http://aiida-pdfdisloc.readthedocs.io/en/develop/index.html.
+Hosted at http://aiida-fenics.readthedocs.io/en/develop/index.html.
 For other information see the AiiDA-core docs, or the FeniCs project.
 
 ### License:
