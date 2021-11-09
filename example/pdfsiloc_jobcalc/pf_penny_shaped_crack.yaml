@@ -1,0 +1,79 @@
+domain:
+  shape: rectangle
+  size:  [2.0e-7, 2.0e-7]
+  mesh_size: [50, 50]
+
+boundary:
+  configuration: traction
+  traction: 22.7e6
+
+materials:
+  - name: austenite
+    youngs_modulus: 6.7e10
+    poisson_ratio: 0.34
+    eigenstrain: [[0, -0.1], [-0.1, 0]]
+
+  - name: martensite
+    youngs_modulus: 6.7e10
+    poisson_ratio: 0.34
+    eigenstrain: [[0, 0.1], [0.1, 0]]
+
+dislocations:
+  parameters:
+    burgers_vector: 0.2e-9
+    slip_lamella: 1.0e-8
+
+  discrete:
+    - sign: '+'
+      position: [-2.8e-8, 0]
+
+    - sign: '+'
+      position: [-2.4e-8, 0]
+
+    - sign: '+'
+      position: [-2.0e-8, 0]
+
+    - sign: '-'
+      position: [2.05e-8, 0]
+
+    - sign: '-'
+      position: [2.45e-8, 0]
+
+    - sign: '-'
+      position: [2.8e-8, 0]
+
+phase_field:
+  parameters:
+    model: schmitt
+    potential: '246'
+
+    # parameters for 234 potential
+    #T = 300 K
+    #potential_constant_a: 6
+    #potential_constant_b: 30
+    #potential_constant_c: 24
+
+    # T = 1350 K
+    #potential_constant_a: 15
+    #potential_constant_b: 33
+    #potential_constant_c: 18
+
+    # parameters for 246 potential
+    potential_constant_a: 11.8
+
+    interfacial_energy_density: 0.96
+    kappa_g: 1.4966
+    kappa_s: 1.3443
+
+    length_scale: 5e-9
+    mobility: 10
+
+  initial:
+    expression: 'x[0] < 0 ? 0.0 : 1.0'
+
+# time_stepping:
+#   end_time: 1
+#   step_size: 10e-3
+
+output:
+  path: output/penny_shaped_crack

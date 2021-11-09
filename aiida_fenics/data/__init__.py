@@ -2,13 +2,13 @@
 ###############################################################################
 # Copyright (c), Forschungszentrum Jülich GmbH, IAS-9, Germany.               #
 #                All rights reserved.                                         #
-# This file is part of the AiiDA-pdfdisloc package.                              #
+# This file is part of the aiida-fenics package.                              #
 #                                                                             #
-# The code is hosted on GitHub at https://github.com/broeder-j/aiida-pdfdisloc            #
+# The code is hosted on GitHub at https://github.com/broeder-j/aiida-fenics            #
 # For further information on the license, see the LICENSE file                #
-# http://aiida-pdfdisloc.readthedocs.io/en/develop/                              #
+# http://aiida-fenics.readthedocs.io/en/develop/                              #
 ###############################################################################
 
 """
-AiiDA-pdfdisloc
+aiida-fenics
 """

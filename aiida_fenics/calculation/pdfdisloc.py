@@ -12,15 +12,20 @@ from aiida.engine import CalcJob
 
 class PdfdislocCalculation(CalcJob):
     """
-    AiiDA calculation plugin wrapping the pdfdisloc executable.
+    AiiDA calculation plugin wrapping a pdfdisloc simulation.
 
     """
 
     _CONFIG_FILE_NAME = "config.yaml"
-    _STRESS_FILE_NAME = ""
-    _STRAIN_FILE_NAME = ""
-    _STRESS_TRAJECTORY_FILE_NAME = ""
-
+    #_STRESS_FILE_NAME = ""
+    #_STRAIN_FILE_NAME = ""
+    #_STRESS_TRAJECTORY_FILE_NAME = ""
+    _DISLOCATION_TRACE_FILE_NAME_H = "dislocation_trace.h5"
+    _DISLOCATION_TRACE_FILE_NAME = "dislocation_trace.xdmf"
+    _ORDER_PARAMETER_FILE_NAME_H = "order_parmeter.h5"
+    _ORDER_PARAMETER__FILE_NAME = "order_parameter.xdmf"
+    _ENVIRONMENT_FILE_NAME = "pip_python_env.txt"
+    
     @classmethod
     def define(cls, spec):
         """Define inputs and outputs of the calculation."""
@@ -48,6 +53,7 @@ class PdfdislocCalculation(CalcJob):
             "model",
             valid_type=orm.SinglefileData,
             help="A python file containing the model to solve.",
+            required=False,
         )
         spec.input(
             "mesh",
@@ -58,6 +64,7 @@ class PdfdislocCalculation(CalcJob):
         spec.output(
             "stress",
             valid_type=orm.ArrayData,
+            required=False,
             help="Stresses of last time step, or the single shot calculation..",
         )
         spec.output(
@@ -82,18 +89,26 @@ class PdfdislocCalculation(CalcJob):
         :return: `aiida.common.datastructures.CalcInfo` instance
         """
         retrieve_list = [
-            self._STRESS_FILE_NAME,
-            self._STRAIN_FILE_NAME,
-            self._STRESS_TRAJECTORY_FILE_NAME,
+            #self._STRESS_FILE_NAME,
+            #self._STRAIN_FILE_NAME,
+            #self._STRESS_TRAJECTORY_FILE_NAME,
+            self._DISLOCATION_TRACE_FILE_NAME_H,
+            self._DISLOCATION_TRACE_FILE_NAME,
+            self._ORDER_PARAMETER_FILE_NAME_H,
+            self._ORDER_PARAMETER__FILE_NAME,
+            self._ENVIRONMENT_FILE_NAME
         ]
 
         # Notice we do not enforce here the names but reuse the file names from the given input.
         # for flexibility, but might lead to user errors.
         local_copy_list = []
-        model_file_name = self.input.model.file
-        local_copy_list.append(
-            (self.input.model.uuid, model_file_name, model_file_name)
-        )
+        if model in self.input:
+            model_file_name = self.input.model.file
+            local_copy_list.append(
+                (self.input.model.uuid, model_file_name, model_file_name)
+            )
+        else:
+            model_file_name = 'martensite_seed.py'
 
         if "mesh" in self.inputs:
             mesh_file_name = self.input.mesh.file
@@ -113,13 +128,15 @@ class PdfdislocCalculation(CalcJob):
 
         codeinfo = datastructures.CodeInfo()
         codeinfo.code_uuid = self.inputs.code.uuid
-        cmdline_params = ["-c", "{}".format(self._CONFIG_FILE_NAME)]
+        cmdline_params = [f"{model_file_name}", -c", "{}".format(self._CONFIG_FILE_NAME)]
         # for command in settings_dict.get('cmdline', []):
         #        cmdline_params.append(command)
         codeinfo.cmdline_params = list(cmdline_params)
         # codeinfo.stdout_name = self.metadata.options.output_filename
         # codeinfo.stdout_name = self._SHELLOUT_FILE_NAME
         # codeinfo.stderr_name = self._ERROR_FILE_NAME
+
+        
 
         codeinfo.withmpi = self.inputs.metadata.options.withmpi
 
@@ -130,5 +147,11 @@ class PdfdislocCalculation(CalcJob):
         calcinfo.retrieve_list = []
         for file_ in retrieve_list:
             calcinfo.retrieve_list.append(file_)
+
+        # prepend text to output environment
+        cmd = f'\npip freeze > {self._ENVIRONMENT_FILE_NAME}'
+        prepend_text = calcinfo.prepend_text
+        prepend_text += cmd
+        calcinfo.prepend_text = prepend_text
 
         return calcinfo

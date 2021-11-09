@@ -54,7 +54,7 @@ The plugin consists of:
 
 ## Installation Instructions <a name="Installation"></a>
 
-From the aiida-pdfdisloc folder (after downloading the code, recommended) use:
+From the aiida-fenics folder (after downloading the code, recommended) use:
 
     $ pip install .
     # or which is very useful to keep track of the changes (developers)
@@ -62,11 +62,11 @@ From the aiida-pdfdisloc folder (after downloading the code, recommended) use:
 
 To uninstall use:
 
-    $ pip uninstall aiida-pdfdisloc
+    $ pip uninstall aiida-fenics
 
 Or install latest release version from pypi:
 
-    $ pip install aiida-pdfdisloc
+    $ pip install aiida-fenics
 
 ### Test Installation
 To test rather the installation was successful use:

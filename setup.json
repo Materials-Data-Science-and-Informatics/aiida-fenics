@@ -1,11 +1,11 @@
 {
     "version": "0.1.0",
-    "name": "aiida-pfdisloc",
-    "url": "https://github.com/broeder-j/aiida-pfdisloc",
+    "name": "aiida-fenics",
+    "url": "https://github.com/broeder-j/aiida-fenics",
     "license": "MIT License, see LICENSE.txt file.",
     "author": "IAS-9",
     "author_email": "j.broeder@fz-juelich.de",
-    "description": "Python pfdisloc simulation package containing an AiiDA Plugin for running the pfdisloc-code (phasefield dislocation interaction) from the IAS-9 of the Forschungszentrum Juelich GmbH. The code is based on Fenics. The package also contains some workflows and utility",
+    "description": "Python package containing an AiiDA Plugin for running the pfdisloc-code (phasefield dislocation interaction) from the IAS-9 of the Forschungszentrum Juelich GmbH. The code is based on Fenics. The package also contains some workflows and utility",
     "classifiers": [
         "Framework :: AiiDA",
         "License :: OSI Approved :: MIT License",
@@ -53,18 +53,13 @@
     },
     "entry_points": {
         "aiida.calculations": [
-            "pfdisloc.pfdisloc = aiida_pfdisloc.calculation.pfdisloc:PfdlislocCalculation"
-        ],
-        "aiida.data": [
-            "pfdisloc.mesh = aiia_pfdisloc.data.mesh:FEMMeshData",
+            "fenics.pfdisloc = aiida_fenics.calculation.pfdisloc:PfdlislocCalculation"
         ],
         "aiida.parsers": [
-            "pfdisloc.pfdislocparser = aiida_pfdisloc.parsers.pfdisloc:PfdislocParser",
-        ],
-        "aiida.workflows": [
+            "fenics.pfdislocparser = aiida_fenics.parsers.pfdisloc:PfdislocParser",
         ],
         "console_scripts": [
-            "aiida-pfdisloc = aiida_pfdisloc.cmdline:cmd_root"
+            "aiida-fenics = aiida_fenics.cli:cmd_root"
         ]
     }
 }
