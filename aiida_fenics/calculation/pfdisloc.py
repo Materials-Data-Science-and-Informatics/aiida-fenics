@@ -2,6 +2,7 @@
 """
 Calcuation plugin for a basic pfdisloc calculatons
 """
+import os
 import yaml
 from aiida import orm
 from aiida.common import datastructures
@@ -88,16 +89,6 @@ class PfdislocCalculation(CalcJob):
             needed by the calculation.
         :return: `aiida.common.datastructures.CalcInfo` instance
         """
-        retrieve_list = [
-            #self._STRESS_FILE_NAME,
-            #self._STRAIN_FILE_NAME,
-            #self._STRESS_TRAJECTORY_FILE_NAME,
-            self._DISLOCATION_TRACE_FILE_NAME_H,
-            self._DISLOCATION_TRACE_FILE_NAME,
-            self._ORDER_PARAMETER_FILE_NAME_H,
-            self._ORDER_PARAMETER__FILE_NAME,
-            self._ENVIRONMENT_FILE_NAME
-        ]
 
         # Notice we do not enforce here the names but reuse the file names from the given input.
         # for flexibility, but might lead to user errors.
@@ -122,9 +113,21 @@ class PfdislocCalculation(CalcJob):
         config = self.inputs.config.get_dict()
         config_filepath = folder.get_abs_path(self._CONFIG_FILE_NAME)
         with open(config_filepath, "w") as file_o:
-            config = yaml.dump(
+            yaml.dump(
                 config, stream=file_o, default_flow_style=False, sort_keys=False
             )
+
+        path_prefix = config.get('output', {}).get('path', '')
+        retrieve_list = [
+            #self._STRESS_FILE_NAME,
+            #self._STRAIN_FILE_NAME,
+            #self._STRESS_TRAJECTORY_FILE_NAME,
+            os.path.join(path_prefix, self._DISLOCATION_TRACE_FILE_NAME_H),
+            os.path.join(path_prefix, self._DISLOCATION_TRACE_FILE_NAME),
+            os.path.join(path_prefix, self._ORDER_PARAMETER_FILE_NAME_H),
+            os.path.join(path_prefix, self._ORDER_PARAMETER__FILE_NAME),
+            self._ENVIRONMENT_FILE_NAME
+        ]
 
         codeinfo = datastructures.CodeInfo()
         codeinfo.code_uuid = self.inputs.code.uuid
