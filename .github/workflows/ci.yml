@@ -1,4 +1,4 @@
-name: aiida-pfdisloc
+name: aiida-fenics-ci
 
 on: [push, pull_request]
 
@@ -58,12 +58,12 @@ jobs:
         python-version: 3.7
 
     - name: Install python dependencies
-      run:
+      run: |
         pip install .[pre-commit,testing]
         pip freeze
 
     - name: Run pre-commit
-      run: 
+      run:
         pre-commit run --all-files || (git status --short; git diff ; exit 1)
 
   tests:
