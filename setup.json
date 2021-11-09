@@ -3,7 +3,7 @@
     "name": "aiida-fenics",
     "url": "https://github.com/broeder-j/aiida-fenics",
     "license": "MIT License, see LICENSE.txt file.",
-    "author": "IAS-9",
+    "author": "Forschungszentrum Juelich GmbH (IAS-9)",
     "author_email": "j.broeder@fz-juelich.de",
     "description": "Python package containing an AiiDA Plugin for running the pfdisloc-code (phasefield dislocation interaction) from the IAS-9 of the Forschungszentrum Juelich GmbH. The code is based on Fenics. The package also contains some workflows and utility",
     "classifiers": [
@@ -28,8 +28,7 @@
     ],
     "reentry_register": true,
     "install_requires": [
-        "aiida-core>=1.3.0,<2.0.0",
-    ],
+        "aiida-core>=1.3.0,<2.0.0"],
     "extras_require": {
         "graphs ": [
             "matplotlib"
@@ -53,11 +52,10 @@
     },
     "entry_points": {
         "aiida.calculations": [
-            "fenics.pfdisloc = aiida_fenics.calculation.pfdisloc:PfdlislocCalculation"
+            "fenics.pfdisloc = aiida_fenics.calculation.pfdisloc:PfdislocCalculation"
         ],
         "aiida.parsers": [
-            "fenics.pfdislocparser = aiida_fenics.parsers.pfdisloc:PfdislocParser",
-        ],
+            "fenics.pfdislocparser = aiida_fenics.parsers.pfdisloc:PfdislocParser"],
         "console_scripts": [
             "aiida-fenics = aiida_fenics.cli:cmd_root"
         ]

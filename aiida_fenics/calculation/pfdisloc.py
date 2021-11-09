@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Calcuation plugin for a basic pdfdisloc calculatons
+Calcuation plugin for a basic pfdisloc calculatons
 """
 import yaml
 from aiida import orm
@@ -10,9 +10,9 @@ from aiida.engine import CalcJob
 # from aiida.plugins import DataFactory
 
 
-class PdfdislocCalculation(CalcJob):
+class PfdislocCalculation(CalcJob):
     """
-    AiiDA calculation plugin wrapping a pdfdisloc simulation.
+    AiiDA calculation plugin wrapping a pfdisloc simulation.
 
     """
 
@@ -36,7 +36,7 @@ class PdfdislocCalculation(CalcJob):
             "num_machines": 1,
             "num_mpiprocs_per_machine": 1,
         }
-        spec.inputs["metadata"]["options"]["parser_name"].default = "pdfdisloc"
+        spec.inputs["metadata"]["options"]["parser_name"].default = "fenics.pfdisloc"
 
         # new ports
         spec.input(
@@ -128,7 +128,7 @@ class PdfdislocCalculation(CalcJob):
 
         codeinfo = datastructures.CodeInfo()
         codeinfo.code_uuid = self.inputs.code.uuid
-        cmdline_params = [f"{model_file_name}", -c", "{}".format(self._CONFIG_FILE_NAME)]
+        cmdline_params = [f"{model_file_name}", "-c", "{}".format(self._CONFIG_FILE_NAME)]
         # for command in settings_dict.get('cmdline', []):
         #        cmdline_params.append(command)
         codeinfo.cmdline_params = list(cmdline_params)

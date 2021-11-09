@@ -9,26 +9,26 @@ from aiida.plugins import CalculationFactory
 from aiida.common import exceptions
 from aiida import orm
 
-PdfdislocCalculation = CalculationFactory("pdfdisloc")
+PfdislocCalculation = CalculationFactory("fenics.pfdisloc")
 
 
-class PdfdislocParser(Parser):
+class PfdislocParser(Parser):
     """
-    Parser class for parsing output of a Pdfdisloc calculation.
+    Parser class for parsing output of a Pfdisloc calculation.
     """
 
     def __init__(self, node):
         """
         Initialize Parser instance
 
-        Checks that the ProcessNode being passed was produced by a PdfdislocCalculation.
+        Checks that the ProcessNode being passed was produced by a PfdislocCalculation.
 
         :param node: ProcessNode of calculation
         :param type node: :class:`aiida.orm.ProcessNode`
         """
         super().__init__(node)
-        if not issubclass(node.process_class, PdfdislocCalculation):
-            raise exceptions.ParsingError("Can only parse PdfdislocCalculation")
+        if not issubclass(node.process_class, PfdislocCalculation):
+            raise exceptions.ParsingError("Can only parse PfdislocCalculation")
 
     def parse(self, **kwargs):
         """

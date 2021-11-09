@@ -16,7 +16,7 @@ class TestPluginEntrypoints:
         from aiida.plugins import CalculationFactory
         
         calculation = CalculationFactory('fenics.pfdisloc')
-        assert fleur_calculation is not None
+        assert calculation is not None
 
     # Data
 
@@ -31,7 +31,7 @@ class TestPluginEntrypoints:
 
     def test_pfdisloc_parser_entry_point(self):
         from aiida.plugins import ParserFactory
-        from aiida_pfdisloc.parsers.pfdisloc import PfdislocParser
+        from aiida_fenics.parsers.pfdisloc import PfdislocParser
 
         parser = ParserFactory('fenics.pfdislocparser')
         assert parser == PfdislocParser
