@@ -114,6 +114,3 @@ Usage examples are shown in 'examples'.
 ## Acknowledgements
 
 Besides the Forschungszentrum Juelich, this work is supported by the [MaX
-
-
-

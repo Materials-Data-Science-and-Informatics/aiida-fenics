@@ -1,8 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+"""Setup file for aiida-fenics"""
 
-from setuptools import setup, find_packages
 import json
+from setuptools import setup, find_packages
 
 if __name__ == '__main__':
     # Provide static information in setup.json
