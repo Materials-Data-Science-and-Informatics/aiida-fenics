@@ -1,12 +1,12 @@
 # Enableing usage of the FEniCS computing platform with AiiDA
 
 [![MIT license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![GitHub release](https://img.shields.io/github/release/broeder-j/aiida-fenics.svg)](https://github.com/broeder-j/aiida-fenics/releases)
+[![GitHub release](https://img.shields.io/github/release/Materials-Data-Science-and-Informatics/aiida-fenics.svg)](https://github.com/Materials-Data-Science-and-Informatics/aiida-fenics/releases)
 [![PyPI version](https://badge.fury.io/py/aiida-fenics.svg)](https://badge.fury.io/py/aiida-fenics)
 [![PyPI pyversions](https://img.shields.io/pypi/pyversions/aiida-fenics.svg)](https://pypi.python.org/pypi/aiida-fenics)
-[![Build status](https://github.com/broeder-j/aiida-fenics/workflows/aiida-fenics/badge.svg?branch=develop&event=push)](https://github.com/broeder-j/aiida-fenics/actions)
+[![Build status](https://github.com/Materials-Data-Science-and-Informatics/aiida-fenics/workflows/aiida-fenics/badge.svg?branch=develop&event=push)](https://github.com/Materials-Data-Science-and-Informatics/aiida-fenics/actions)
 [![Documentation Status](https://readthedocs.org/projects/aiida-fenics/badge/?version=develop)](https://aiida-fenics.readthedocs.io/en/develop/?badge=develop)
-[![codecov](https://codecov.io/gh/broeder-j/aiida-fenics/branch/develop/graph/badge.svg)](https://codecov.io/gh/broeder-j/aiida-fenics)
+[![codecov](https://codecov.io/gh/Materials-Data-Science-and-Informatics/aiida-fenics/branch/develop/graph/badge.svg)](https://codecov.io/gh/Materials-Data-Science-and-Informatics/aiida-fenics)
 
 
 This software contains a plugins that enables the usage of the FENiCS computing platform with the [AiiDA framework](http://www.aiida.net). It includes special plugins for software building on FENiCs like the Phasefield dislocation interaction program Pdfdisloc. The enables provenance tracking for such simulations and workflows, which is need for research datamanagement, reproducibility and FAIR data.

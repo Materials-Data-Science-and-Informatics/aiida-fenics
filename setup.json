@@ -1,7 +1,7 @@
 {
     "version": "0.1.0",
     "name": "aiida-fenics",
-    "url": "https://github.com/broeder-j/aiida-fenics",
+    "url": "https://github.com/Materials-Data-Science-and-Informatics/aiida-fenics",
     "license": "MIT License, see LICENSE.txt file.",
     "author": "Forschungszentrum Juelich GmbH (IAS-9)",
     "author_email": "j.broeder@fz-juelich.de",
