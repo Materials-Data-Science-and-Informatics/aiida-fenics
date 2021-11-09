@@ -36,7 +36,7 @@ class PfdislocCalculation(CalcJob):
             "num_machines": 1,
             "num_mpiprocs_per_machine": 1,
         }
-        spec.inputs["metadata"]["options"]["parser_name"].default = "fenics.pfdisloc"
+        spec.inputs["metadata"]["options"]["parser_name"].default = "fenics.pfdislocparser"
 
         # new ports
         spec.input(
@@ -102,24 +102,24 @@ class PfdislocCalculation(CalcJob):
         # Notice we do not enforce here the names but reuse the file names from the given input.
         # for flexibility, but might lead to user errors.
         local_copy_list = []
-        if model in self.input:
-            model_file_name = self.input.model.file
+        if "model" in self.inputs:
+            model_file_name = self.inputs.model.filename
             local_copy_list.append(
-                (self.input.model.uuid, model_file_name, model_file_name)
+                (self.inputs.model.uuid, model_file_name, model_file_name)
             )
         else:
             model_file_name = 'martensite_seed.py'
 
         if "mesh" in self.inputs:
-            mesh_file_name = self.input.mesh.file
+            mesh_file_name = self.inputs.mesh.filename
             local_copy_list.append(
-                (self.input.mesh.uuid, mesh_file_name, mesh_file_name)
+                (self.inputs.mesh.uuid, mesh_file_name, mesh_file_name)
             )
 
         # copy model file from Single file data
 
         # write config yaml file from dict
-        config = self.inputs.config
+        config = self.inputs.config.get_dict()
         config_filepath = folder.get_abs_path(self._CONFIG_FILE_NAME)
         with open(config_filepath, "w") as file_o:
             config = yaml.dump(
@@ -151,7 +151,10 @@ class PfdislocCalculation(CalcJob):
         # prepend text to output environment
         cmd = f'\npip freeze > {self._ENVIRONMENT_FILE_NAME}'
         prepend_text = calcinfo.prepend_text
-        prepend_text += cmd
+        if prepend_text is None:
+            prepend_text = cmd
+        else:
+            prepend_text += cmd
         calcinfo.prepend_text = prepend_text
 
         return calcinfo

@@ -28,11 +28,9 @@
     ],
     "reentry_register": true,
     "install_requires": [
-        "aiida-core>=1.3.0,<2.0.0"],
+        "aiida-core>=1.3.0,<2.0.0",
+        "pyyaml"],
     "extras_require": {
-        "graphs ": [
-            "matplotlib"
-        ],
         "docs": [
             "Sphinx",
             "docutils",
