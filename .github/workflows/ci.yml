@@ -6,7 +6,7 @@ jobs:
 
   docs:
 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
 
     steps:
     - uses: actions/checkout@v1
@@ -37,7 +37,7 @@ jobs:
 
   pre-commit:
 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     timeout-minutes: 30
 
     steps:
@@ -68,7 +68,7 @@ jobs:
 
   tests:
 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     timeout-minutes: 30
 
     strategy:
@@ -138,4 +138,3 @@ jobs:
       with:
         file: ./tests/coverage.xml
         fail_ci_if_error: False
-
