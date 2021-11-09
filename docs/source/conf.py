@@ -15,7 +15,7 @@ import os
 import sys
 import time
 
-import {{cookiecutter.module_name}}
+import aiida_fenics
 from aiida.manage.configuration import load_documentation_profile
 
 # -- AiiDA-related setup --------------------------------------------------
@@ -86,7 +86,7 @@ copyright = u'{}, {}. All rights reserved'.format(copyright_year_string,
 # built documents.
 #
 # The full version, including alpha/beta/rc tags.
-release = {{cookiecutter.module_name}}.__version__
+release = aiida_fenics.__version__
 # The short X.Y version.
 version = '.'.join(release.split('.')[:2])
 
@@ -286,7 +286,7 @@ def run_apidoc(_):
     """
     source_dir = os.path.abspath(os.path.dirname(__file__))
     apidoc_dir = os.path.join(source_dir, 'apidoc')
-    package_dir = os.path.join(source_dir, os.pardir, os.pardir, '{{cookiecutter.module_name}}')
+    package_dir = os.path.join(source_dir, os.pardir, os.pardir, 'aiida_fenics')
 
     # In #1139, they suggest the route below, but this ended up
     # calling sphinx-build, not sphinx-apidoc

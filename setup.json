@@ -32,9 +32,11 @@
         "pyyaml"],
     "extras_require": {
         "docs": [
-            "Sphinx",
             "docutils",
-            "sphinx_rtd_theme"
+            "sphinx",
+            "sphinxcontrib-contentui",
+            "sphinxcontrib-details-directive; python_version>='3.0'",
+            "sphinx-rtd-theme"
         ],
         "pre-commit": [
             "pre-commit>=2.6.0",

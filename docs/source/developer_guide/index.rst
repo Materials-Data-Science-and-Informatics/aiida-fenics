@@ -28,15 +28,6 @@ If you ever need to skip these pre-commit hooks, just use::
     git commit -n
 
 
-Continuous integration
-++++++++++++++++++++++
-
-``{{cookiecutter.plugin_name}}`` comes with a ``.github`` folder that contains continuous integration tests on every commit using `GitHub Actions <https://github.com/features/actions>`_. It will:
-
-#. run all tests for the ``django`` ORM
-#. build the documentation
-#. check coding style and version number (not required to pass by default)
-
 Building the documentation
 ++++++++++++++++++++++++++
 
@@ -66,9 +57,9 @@ Once you're happy with your documentation, it's easy to host it online on ReadTh
 
  #. Create an account on ReadTheDocs_
 
- #. Import your ``{{ cookiecutter.repo_name}}`` repository (preferably using ``{{ cookiecutter.plugin_name}}`` as the project name)
+ #. Import the aiida-fenics repository (preferably using aiida-fenics as the project name)
 
-The documentation is now available at `{{ cookiecutter.plugin_name}}.readthedocs.io <http://{{ cookiecutter.plugin_name}}.readthedocs.io/>`_.
+The documentation is now available at `aiida-fenics.readthedocs.io <http://aiida-fenics.readthedocs.io/>`_.
 
 PyPI release
 ++++++++++++
@@ -89,7 +80,7 @@ simply generate a `PyPI API token <https://pypi.org/help/#apitoken>`_ for your P
 
 .. note::
 
-   When updating the plugin package to a new version, remember to update the version number both in ``setup.json`` and ``{{cookiecutter.module_name}}/__init__.py``.
+   When updating the plugin package to a new version, remember to update the version number both in ``setup.json`` and ``aiida_fenics/__init__.py``.
 
 
 .. _ReadTheDocs: https://readthedocs.org/
