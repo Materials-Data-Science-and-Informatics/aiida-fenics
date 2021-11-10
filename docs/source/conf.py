@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Sphinx configuration for {{cookiecutter.plugin_name}}
+# Sphinx configuration for aiida-fenics
 #
 # This file is execfile()d with the current directory set to its
 # containing dir.
@@ -15,7 +15,7 @@ import os
 import sys
 import time
 
-import aiida_fenics
+#import aiida_fenics
 from aiida.manage.configuration import load_documentation_profile
 
 # -- AiiDA-related setup --------------------------------------------------
@@ -70,9 +70,9 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'{{cookiecutter.plugin_name}}'
-copyright_first_year = '{{cookiecutter.year}}'
-copyright_owners = '{{cookiecutter.author}}'
+project = u'aiida-fenics'
+copyright_first_year = '2021'
+copyright_owners = 'Forschungszentrum Juelich GmbH (IAS-1)'
 
 current_year = str(time.localtime().tm_year)
 copyright_year_string = current_year if current_year == copyright_first_year else '{}-{}'.format(
@@ -86,7 +86,7 @@ copyright = u'{}, {}. All rights reserved'.format(copyright_year_string,
 # built documents.
 #
 # The full version, including alpha/beta/rc tags.
-release = aiida_fenics.__version__
+release = '0.1.0'#aiida_fenics.__version__
 # The short X.Y version.
 version = '.'.join(release.split('.')[:2])
 
@@ -211,7 +211,7 @@ html_show_sourcelink = False
 # If true, an OpenSearch description file will be output, and all pages will
 # contain a <link> tag referring to it.  The value of this option must be the
 # base URL from which the finished HTML is served.
-html_use_opensearch = 'http://{{cookiecutter.plugin_name}}.readthedocs.io'
+html_use_opensearch = 'http://aiida-fenics.readthedocs.io'
 
 # This is the file name suffix for HTML files (e.g. ".xhtml").
 #html_file_suffix = None
@@ -231,7 +231,7 @@ html_search_language = 'en'
 #html_search_scorer = 'scorer.js'
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = '{{cookiecutter.plugin_name}}-doc'
+htmlhelp_basename = 'aiida-fenics-doc'
 
 # -- Options for LaTeX output ---------------------------------------------
 
