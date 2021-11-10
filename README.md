@@ -1,4 +1,4 @@
-# Enableing usage of the FEniCS computing platform with AiiDA
+# Enabling usage of the FEniCS computing platform with AiiDA
 
 [![MIT license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![GitHub release](https://img.shields.io/github/release/Materials-Data-Science-and-Informatics/aiida-fenics.svg)](https://github.com/Materials-Data-Science-and-Informatics/aiida-fenics/releases)
@@ -79,9 +79,9 @@ $ verdi plugins list aiida.calculations
    ## Pass as a further parameter one (or more) plugin names
    ## to get more details on a given plugin.
    ...
-   * dfdisloc.dfdisloc
+   * fenics.dfdisloc
 ```
-You should see 'dfdisloc.*' in the list
+You should see 'fenics.*' in the list
 
 The other entry points can be checked with the AiiDA Factories (Data, Workflow, Calculation, Parser).
 (this is done in test_entry_points.py)
@@ -94,11 +94,11 @@ ___
 
 ## Code Dependencies <a name="Dependencies"></a>
 
-Requirements are listed in 'setup_requirements.txt' and setup.json.
+Requirements are listed in setup.json.
 
 most important are:
 
-* aiida_core >= 1.0.1
+* aiida_core >= 1.3.0
 
 Mainly AiiDA:
 
@@ -113,4 +113,4 @@ Usage examples are shown in 'examples'.
 
 ## Acknowledgements
 
-Besides the Forschungszentrum Juelich, this work is supported by the [MaX
+Besides the Forschungszentrum Juelich GmbH (FZJ), this project was supported within the hub Information at the FZJ by the Helmholtz Metadata Collaboration (HMC), an incubator-platform of the Helmholtz Association within the framework of the Information and Data Science strategic initiative.
