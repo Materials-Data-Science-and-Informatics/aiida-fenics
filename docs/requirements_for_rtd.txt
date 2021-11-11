@@ -2,3 +2,6 @@ pip>=18.0
 setuptools>34
 aiida-core>=1.0.1
 sphinx_click
+sphinxcontrib-contentui
+sphinxcontrib-details-directive
+sphinx-rtd-theme
