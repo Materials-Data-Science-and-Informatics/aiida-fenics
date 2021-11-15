@@ -9,7 +9,7 @@
 [![codecov](https://codecov.io/gh/Materials-Data-Science-and-Informatics/aiida-fenics/branch/develop/graph/badge.svg)](https://codecov.io/gh/Materials-Data-Science-and-Informatics/aiida-fenics)
 
 
-This software contains a plugins that enables the usage of the FENiCS computing platform with the [AiiDA framework](http://www.aiida.net). It includes special plugins for software building on FENiCs like the Phasefield dislocation interaction program Pdfdisloc. The enables provenance tracking for such simulations and workflows, which is need for research datamanagement, reproducibility and FAIR data.
+This software contains a plugins that enables the usage of the FEniCS computing platform with the [AiiDA framework](http://www.aiida.net). It includes special plugins for software building on FEniCS like the Phasefield dislocation interaction program Pdfdisloc. The enables provenance tracking for such simulations and workflows, which is need for research datamanagement, reproducibility and FAIR data.
 
 ### Documentation
 
@@ -25,7 +25,6 @@ See the license file.
 If you use this package please consider citing:
 ```
 ```
-
 
 ### Comments/Disclaimer:
 
@@ -86,7 +85,7 @@ You should see 'fenics.*' in the list
 The other entry points can be checked with the AiiDA Factories (Data, Workflow, Calculation, Parser).
 (this is done in test_entry_points.py)
 
-We suggest to run all the (unit)tests in the aiida-fleur/aiida_fleur/tests/ folder.
+We suggest to run all the (unit)tests in the aiida-fenics/tests/ folder.
 
     $ bash run_all_cov.sh
 
@@ -113,4 +112,4 @@ Usage examples are shown in 'examples'.
 
 ## Acknowledgements
 
-Besides the Forschungszentrum Juelich GmbH (FZJ), this project was supported within the hub Information at the FZJ by the Helmholtz Metadata Collaboration (HMC), an incubator-platform of the Helmholtz Association within the framework of the Information and Data Science strategic initiative.
+Besides the Forschungszentrum Juelich GmbH (FZJ), this project was supported within the hub Information at the FZJ by the [Helmholtz Metadata Collaboration (HMC)](https://www.helmholtz-metadaten.de/en), an incubator-platform of the Helmholtz Association within the framework of the Information and Data Science strategic initiative.
