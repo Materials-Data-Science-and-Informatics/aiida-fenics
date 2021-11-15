@@ -4,7 +4,7 @@
 [![GitHub release](https://img.shields.io/github/release/Materials-Data-Science-and-Informatics/aiida-fenics.svg)](https://github.com/Materials-Data-Science-and-Informatics/aiida-fenics/releases)
 [![PyPI version](https://badge.fury.io/py/aiida-fenics.svg)](https://badge.fury.io/py/aiida-fenics)
 [![PyPI pyversions](https://img.shields.io/pypi/pyversions/aiida-fenics.svg)](https://pypi.python.org/pypi/aiida-fenics)
-[![Build status](https://github.com/Materials-Data-Science-and-Informatics/aiida-fenics/workflows/aiida-fenics/badge.svg?branch=develop&event=push)](https://github.com/Materials-Data-Science-and-Informatics/aiida-fenics/actions)
+[![Build status](https://github.com/Materials-Data-Science-and-Informatics/aiida-fenics/workflows/aiida-fenics-ci/badge.svg)](https://github.com/Materials-Data-Science-and-Informatics/aiida-fenics/actions)
 [![Documentation Status](https://readthedocs.org/projects/aiida-fenics/badge/?version=develop)](https://aiida-fenics.readthedocs.io/en/develop/?badge=develop)
 [![codecov](https://codecov.io/gh/Materials-Data-Science-and-Informatics/aiida-fenics/branch/develop/graph/badge.svg)](https://codecov.io/gh/Materials-Data-Science-and-Informatics/aiida-fenics)
 
